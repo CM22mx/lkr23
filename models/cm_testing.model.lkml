@@ -139,6 +139,7 @@ explore: order_items {
 }
 
 explore: order_items_vijaya {
+  persist_with: cm_testing_default_datagroup
   join: orders {
     type: left_outer
     sql_on: ${order_items_vijaya.order_id} = ${orders.id} ;;
