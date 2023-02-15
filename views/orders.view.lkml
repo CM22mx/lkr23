@@ -26,7 +26,11 @@ view: orders {
     type: string
     sql: ${TABLE}.status ;;
   }
-
+  dimension: image_test {
+    type: string
+    sql: ${TABLE}.id;;
+    html: <img src="https://logo-core.clearbit.com/looker.com" /> ;;
+  }
   dimension: user_id {
     type: number
     # hidden: yes
