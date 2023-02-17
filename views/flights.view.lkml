@@ -99,6 +99,7 @@ view: flights {
     sql: ${TABLE}.taxi_out ;;
   }
 
+
   measure: count {
     type: count
     drill_fields: []

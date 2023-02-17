@@ -30,6 +30,7 @@ explore: billion_orders {
   }
 }
 
+explore: pop_support {}
 
 explore: connection_reg_r3 {}
 
@@ -44,7 +45,7 @@ explore: events {
     relationship: many_to_one
   }
 }
-
+# F
 explore: fakeorders {
   join: orders {
     type: left_outer
