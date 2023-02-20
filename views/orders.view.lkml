@@ -37,6 +37,15 @@ view: orders {
     type: count
     drill_fields: [detail*]
   }
+  measure: set {
+    type: number
+    sql: ${count}-3 ;;
+    value_format: "[>0]+0;[=0]0;-0"
+    html: {% if orders.set._value >=0 %}<font color="red"> {{rendered_value}} setting</font>
+    {%else%}<font color="green"> {{rendered_value}}setting</font>
+    {%endif%};;
+
+  }
 
   # ----- Sets of fields for drilling ------
   set: detail {
