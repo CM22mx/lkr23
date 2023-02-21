@@ -30,6 +30,8 @@ explore: billion_orders {
   }
 }
 
+explore: pop_support {}
+
 explore: connection_reg_r3 {}
 
 explore: dept {}
@@ -43,7 +45,7 @@ explore: events {
     relationship: many_to_one
   }
 }
-
+# F
 explore: fakeorders {
   join: orders {
     type: left_outer
@@ -139,6 +141,7 @@ explore: order_items {
 }
 
 explore: order_items_vijaya {
+  persist_with: cm_testing_default_datagroup
   join: orders {
     type: left_outer
     sql_on: ${order_items_vijaya.order_id} = ${orders.id} ;;

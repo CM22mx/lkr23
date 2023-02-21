@@ -16,6 +16,7 @@ view: users {
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
+    drill_fields: [email,age]
   }
 
   dimension: country {
@@ -41,6 +42,13 @@ view: users {
   dimension: email {
     type: string
     sql: ${TABLE}.email ;;
+    link: {
+      label: "Drill as scatter plot"
+      url: "{ % assign vis_config = '{
+          \"x_axis_gridlines\":false, \"y_axis_gridlines\":true\"}' %}
+  \{\{ city._link \}\}&vis_config=\{\{ vis_config | encode_uri \}\}&toggle=dat,pik,vis&limit=5000"
+
+}
   }
 
   dimension: first_name {
