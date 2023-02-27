@@ -35,6 +35,7 @@ view: orders {
     type: number
     # hidden: yes
     sql: ${TABLE}.user_id ;;
+
   }
 
   measure: count {
@@ -45,8 +46,11 @@ view: orders {
     type: number
     sql: ${count}-3 ;;
     #value_format: "[>0]+0;[=0]0;-0"
-    html: {% if orders.set._value >=0 %}<font color="red"> {{rendered_value}} setting</font>
-    {%else%}<font color="green"> {{rendered_value}}setting</font>
+    html:
+{% if orders.set._value >=0 %}<font color="red" font-size="100%" text-align="center"> {{rendered_value}}</font> <font font-size="200%" text-align="top">head</font>
+
+    {%else%}<font color="green"font-size="100%" text-align="center"> {{rendered_value}}</font> <font font-size="200%" text-align="top">head</font>
+
     {%endif%};;
 
   }

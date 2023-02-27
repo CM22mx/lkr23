@@ -17,6 +17,17 @@ view: users {
     type: string
     sql: ${TABLE}.city ;;
     drill_fields: [email,age]
+    html: {% if value =="Abbeville" %}
+     <p style="font-size:200%;"> head</p>
+    <p style="color: green; font-size:100%; text-align:center">{{ rendered_value }}</p>
+    {% elsif value=="Ada" %}
+       <p style="font-size:200%;"> head</p>
+      <p style="color: red; font-size:100%; text-align:center">{{ rendered_value }}</p>
+    {% else %}
+       <p style="font-size:200%;"> head</p>
+      <p style="color:yellow;  font-size:100%; text-align:center">{{ rendered_value }}</p>
+    {% endif %}
+    ;;
   }
 
   dimension: country {
