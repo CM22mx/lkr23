@@ -9,6 +9,7 @@ view: orders {
   }
 
   dimension_group: created {
+    label: "{% if _filters['created_date'] == ' '%}'default'{% else %}'Revenue'{{_filters['created_date']}}{% endif %}"
     type: time
     timeframes: [
       raw,
@@ -23,6 +24,7 @@ view: orders {
   }
 
   dimension: status {
+    label: "{% if _filters['status'] == ''%}'Orders_1'{% else %}{{_filters['status']}}{% endif %}"
     type: string
     sql: ${TABLE}.status ;;
   }
@@ -44,7 +46,7 @@ view: orders {
   measure: set {
     type: number
     sql: ${count}-3 ;;
-    value_format: "[>0]+0;[=0]0;-0"
+    #value_format: "[>0]+0;[=0]0;-0"
     html: {% if orders.set._value >=0 %}<font color="red"> {{rendered_value}} setting</font>
     {%else%}<font color="green"> {{rendered_value}}setting</font>
     {%endif%};;
