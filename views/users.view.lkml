@@ -76,11 +76,28 @@ view: users {
     sql: ${TABLE}.zip ;;
   }
 
+  dimension: full_name {
+    type: string
+    sql: concat(${first_name}," ",${last_name}) ;;
+  }
+dimension: length {
+  type: number
+  sql: len(${full_name}) ;;
+}
+dimension: ages_tiers {
+  type: tier
+  sql: ${age};;
+  tiers: [18,25,50,75,100]
+  style: integer
+}
   measure: count {
     type: count
     drill_fields: [detail*]
   }
-
+measure: avg_age {
+  type: average
+  sql: ${age} ;;
+}
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
