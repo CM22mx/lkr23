@@ -43,10 +43,7 @@ view: products {
     sql: ${TABLE}.sku ;;
   }
 
-  dimension: product_image {
-    sql: ${id} ;;
-    html: <img src="https://www.altostrat.com/product_images/{{ value }}.jpg" /> ;;
-  }
+
 
   measure: count {
     type: count
